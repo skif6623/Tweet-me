@@ -1,12 +1,12 @@
 import {Button} from "../Button/Button";
-import {TweetCard, Background, Line, Circle, Subscribers} from "./Card.styled";
+import {AvatarWrap} from "../AvatarWrap/AvatarWrap";
+import {TweetCard, Background, Subscribers} from "./Card.styled";
 
 export const Card = () => {
 	return (
 		<TweetCard>
 			<Background></Background>
-			<Line></Line>
-			<Circle></Circle>
+			<AvatarWrap></AvatarWrap>
 			<Subscribers>tweets</Subscribers>
 			<Subscribers>followers</Subscribers>
 			<Button />
