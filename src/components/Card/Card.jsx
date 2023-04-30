@@ -11,7 +11,7 @@ export const Card = ({user, tweets, followers, avatar}) => {
 				<Tweets>{tweets} tweets</Tweets>
 				<Followers>{followers} followers</Followers>
 			</Activity>
-			<Button />
+			<Button>follow</Button>
 		</TweetCard>
 	);
 };
