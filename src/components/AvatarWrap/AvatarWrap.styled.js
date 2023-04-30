@@ -20,6 +20,7 @@ export const Circle = styled.div`
 
 	width: 80px;
 	height: 80px;
+	padding: 9px;
 
 	background-color: #ebd8ff;
 	border-radius: 50%;
@@ -27,4 +28,12 @@ export const Circle = styled.div`
 		inset 0px 4.39163px 3.29372px #fbf8ff;
 
 	transform: translate(-50%);
+`;
+
+export const Avatar = styled.img`
+	display: block;
+	width: 62px;
+	height: 62px;
+
+	border-radius: 50%;
 `;

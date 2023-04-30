@@ -55,7 +55,9 @@ export const Circle = styled.div`
 	transform: translate(-50%);
 `;
 
-export const Subscribers = styled.p`
+export const Activity = styled.div`
+	margin-bottom: 16px;
+
 	font-family: "Montserrat";
 	font-weight: 500;
 	font-size: 20px;
@@ -64,4 +66,12 @@ export const Subscribers = styled.p`
 	text-align: center;
 
 	color: #ebd8ff;
+`;
+
+export const Tweets = styled.p`
+	margin-bottom: 16px;
+`;
+
+export const Followers = styled.p`
+	margin-bottom: 26px;
 `;

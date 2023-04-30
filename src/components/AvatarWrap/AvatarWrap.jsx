@@ -1,11 +1,13 @@
 import React from "react";
-import {Line, Circle} from "./AvatarWrap.styled";
+import {Line, Circle, Avatar} from "./AvatarWrap.styled";
 
-export const AvatarWrap = () => {
+export const AvatarWrap = ({avatar, user}) => {
 	return (
 		<>
 			<Line></Line>
-			<Circle></Circle>
+			<Circle>
+				<Avatar src={avatar} alt={user} />
+			</Circle>
 		</>
 	);
 };
