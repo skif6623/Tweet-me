@@ -1,57 +1,39 @@
 import React, {useState, useEffect} from "react";
+import {useDispatch, useSelector} from "react-redux";
+import {getUsers, moreUsers} from "../redux/operations";
 import {Card} from "../components/Card/Card";
 import {Button} from "../components/Button/Button";
-import {UserList} from "./TweetPage.styled";
-
-import {getUsers} from "../utils/api";
+import {UserList, PageWrapper} from "./TweetPage.styled";
 
 export const TweetPage = () => {
 	const [page, setPage] = useState(1);
-	const [currentUsers, setCurrentUsers] = useState([]);
+
+	const users = useSelector(state => state.users.users);
+	const dispatch = useDispatch();
 
 	const totalPages = 4;
 	const showLoadMore = page < totalPages;
 
 	useEffect(() => {
-		const fetchUsers = async () => {
-			try {
-				const newUsers = await getUsers(page);
-				setCurrentUsers(newUsers);
-			} catch (error) {
-				console.log(error);
-			}
-		};
-		const addUsers = async () => {
-			try {
-				const newUsers = await getUsers(page);
-				setCurrentUsers(prevUsers => [...prevUsers, ...newUsers]);
-			} catch (error) {
-				console.log(error);
-			}
-		};
-		if (page === 1) {
-			fetchUsers();
-		} else {
-			addUsers();
-		}
-	}, [page]);
+		page === 1 ? dispatch(getUsers()) : dispatch(moreUsers(page));
+	}, [dispatch, page]);
 
 	const incrementPage = () => {
 		setPage(prev => prev + 1);
 	};
 
 	return (
-		<>
+		<PageWrapper>
 			<UserList>
-				{currentUsers.map(({user, tweets, followers, avatar, id}) => {
+				{users.map(({user, tweets, followers, avatar, follow, id}) => {
 					return (
 						<li key={id}>
-							<Card tweets={tweets} followers={followers} avatar={avatar} user={user} />
+							<Card follow={follow} tweets={tweets} followers={followers} avatar={avatar} user={user} id={id} />
 						</li>
 					);
 				})}
 			</UserList>
-			{showLoadMore && <Button incPage={incrementPage}>Load More</Button>}
-		</>
+			{showLoadMore && <Button action={incrementPage}>Load More</Button>}
+		</PageWrapper>
 	);
 };

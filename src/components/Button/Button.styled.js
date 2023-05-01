@@ -13,14 +13,15 @@ export const SubscribeButton = styled.button`
 	text-transform: uppercase;
 	color: #373737;
 
-	background-color: #ebd8ff;
+	background-color: ${({status}) => (status === "active" ? "#5cd3a8" : "#EBD8FF")};
 	box-shadow: 0px 3.43693px 3.43693px rgba(0, 0, 0, 0.25);
 	border: none;
 	border-radius: 10.3108px;
 
-	transition: background-color 250ms ease;
+	transition: background-color 250ms ease, transform 250ms ease;
 
 	:hover {
-		background-color: #5cd3a8;
+		background-color: ${({status}) => (status === "active" ? "#EBD8FF" : "#5cd3a8")};
+		transform: scale(1.1);
 	}
 `;
