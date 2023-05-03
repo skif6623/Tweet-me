@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import main_bg from "../../images/main-bg.png";
+import logo from "../../images/logo.png";
 
 export const TweetCard = styled.div`
 	position: relative;
@@ -15,6 +16,17 @@ export const TweetCard = styled.div`
 	background-repeat: no-repeat;
 	box-shadow: -2.5777px 6.87386px 20.6216px rgba(0, 0, 0, 0.23);
 	border-radius: 20px;
+`;
+
+export const Logo = styled.div`
+	position: absolute;
+	left: 20px;
+	top: 20px;
+
+	width: 76px;
+	height: 22px;
+
+	background-image: url(${logo});
 `;
 
 export const Background = styled.div`

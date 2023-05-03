@@ -1,6 +1,6 @@
 import {Button} from "../Button/Button";
 import {AvatarWrap} from "../AvatarWrap/AvatarWrap";
-import {TweetCard, Background, Activity, Tweets, Followers} from "./Card.styled";
+import {TweetCard, Logo, Background, Activity, Tweets, Followers} from "./Card.styled";
 
 import {useDispatch} from "react-redux";
 import {addStatus, removeStatus} from "../../redux/operations";
@@ -21,6 +21,7 @@ export const Card = ({id, user, tweets, followers, avatar, follow}) => {
 
 	return (
 		<TweetCard>
+			<Logo />
 			<Background />
 			<AvatarWrap avatar={avatar} user={user} />
 			<Activity>
