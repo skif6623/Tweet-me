@@ -1,5 +1,6 @@
 import React, {useState, useEffect} from "react";
 import {useDispatch, useSelector} from "react-redux";
+import {useLocation, Link} from "react-router-dom";
 import {getUsers, moreUsers} from "../redux/operations";
 import {Card} from "../components/Card/Card";
 import {Button} from "../components/Button/Button";
@@ -10,9 +11,11 @@ export const TweetPage = () => {
 
 	const users = useSelector(state => state.users.users);
 	const dispatch = useDispatch();
+	const location = useLocation();
 
 	const totalPages = 4;
 	const showLoadMore = page < totalPages;
+	const backLinkRef = location.state?.from ?? "/";
 
 	useEffect(() => {
 		page === 1 ? dispatch(getUsers()) : dispatch(moreUsers(page));
@@ -24,6 +27,7 @@ export const TweetPage = () => {
 
 	return (
 		<PageWrapper>
+			<Link to={backLinkRef}>Go Back</Link>
 			<UserList>
 				{users.map(({user, tweets, followers, avatar, follow, id}) => {
 					return (
