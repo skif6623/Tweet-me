@@ -1,20 +1,54 @@
 import styled from "styled-components";
-import bg_image from "../../images/social-media-3846597.webp";
+import {NavLink} from "react-router-dom";
 
-export const Bg = styled.main`
+export const NavBg = styled.div`
 	display: flex;
 	justify-content: center;
 	align-items: center;
+	flex-wrap: wrap;
+	gap: 30px;
+	width: 500px;
+	height: 300px;
+	padding: 20px;
 
-	width: 100vw;
-	height: 100vh;
-
-	background-image: url(${bg_image});
+	background-color: white;
+	border: 2px solid #5cd3a8;
+	border-radius: 9px;
 `;
 
-export const NavBg = styled.div`
-	width: 400px;
-	height: 300px;
+export const Title = styled.h1`
+	text-align: center;
+`;
 
-	background-color: red;
+export const LinkBtn = styled(NavLink)`
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 196px;
+	height: 50px;
+
+	font-weight: 600;
+	font-size: 18px;
+	line-height: 22px;
+	text-decoration: none;
+	text-transform: uppercase;
+	color: #373737;
+
+	background-color: #ebd8ff;
+	box-shadow: 0px 3.43693px 3.43693px rgba(0, 0, 0, 0.25);
+	border: none;
+	border-radius: 10.3108px;
+	transition: background-color 250ms ease;
+
+	:hover {
+		background-color: #5cd3a8;
+	}
+
+	&.active {
+		background-color: #5cd3a8;
+
+		:hover {
+			background-color: #ebd8ff;
+		}
+	}
 `;

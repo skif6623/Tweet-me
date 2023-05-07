@@ -2,6 +2,7 @@ import React, {useState, useEffect} from "react";
 import {useDispatch, useSelector} from "react-redux";
 import {useLocation, Link} from "react-router-dom";
 import {getUsers, moreUsers} from "../redux/operations";
+import {MainBackground} from "../components/MainBackground/MainBackground";
 import {Card} from "../components/Card/Card";
 import {Button} from "../components/Button/Button";
 import {UserList, PageWrapper} from "./TweetPage.styled";
@@ -26,7 +27,7 @@ export const TweetPage = () => {
 	};
 
 	return (
-		<PageWrapper>
+		<MainBackground>
 			<Link to={backLinkRef}>Go Back</Link>
 			<UserList>
 				{users.map(({user, tweets, followers, avatar, follow, id}) => {
@@ -38,6 +39,6 @@ export const TweetPage = () => {
 				})}
 			</UserList>
 			{showLoadMore && <Button action={incrementPage}>Load More</Button>}
-		</PageWrapper>
+		</MainBackground>
 	);
 };

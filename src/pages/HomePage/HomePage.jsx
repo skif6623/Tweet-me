@@ -1,20 +1,22 @@
 import React from "react";
-import {NavLink} from "react-router-dom";
 import {useLocation} from "react-router-dom";
-import {Bg, NavBg} from "./HomePage.styled";
+
+import {MainBackground} from "../../components/MainBackground/MainBackground";
+
+import {NavBg, Title, LinkBtn} from "./HomePage.styled";
 
 export const HomePage = () => {
 	const location = useLocation();
 
 	return (
-		<Bg>
+		<MainBackground center>
 			<NavBg>
-				<NavLink to="/">Home</NavLink>
-				<NavLink to="/tweets" state={{from: location}}>
+				<Title>Welcome to Tweet me</Title>
+				<LinkBtn to="/">Home</LinkBtn>
+				<LinkBtn to="/tweets" state={{from: location}}>
 					Tweets
-				</NavLink>
-				<p>Welcome to Tweet me</p>
+				</LinkBtn>
 			</NavBg>
-		</Bg>
+		</MainBackground>
 	);
 };
