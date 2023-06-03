@@ -41,13 +41,16 @@ export const LinkBtn = styled(NavLink)`
 	transition: background-color 250ms ease;
 
 	:hover {
+		color: white;
 		background-color: #5cd3a8;
 	}
 
 	&.active {
+		color: white;
 		background-color: #5cd3a8;
 
 		:hover {
+			color: #373737;
 			background-color: #ebd8ff;
 		}
 	}

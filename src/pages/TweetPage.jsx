@@ -5,7 +5,7 @@ import {getUsers, moreUsers} from "../redux/operations";
 import {MainBackground} from "../components/MainBackground/MainBackground";
 import {Card} from "../components/Card/Card";
 import {Button} from "../components/Button/Button";
-import {UserList, PageWrapper} from "./TweetPage.styled";
+import {UserList} from "./TweetPage.styled";
 
 export const TweetPage = () => {
 	const [page, setPage] = useState(1);
