@@ -20,15 +20,15 @@ export const userSlice = createSlice({
 				return action.payload;
 			})
 			.addCase(moreUsers.fulfilled, (state, action) => {
-				state.users = [...state.users, ...action.payload];
+				return [...state, ...action.payload];
 			})
 			.addCase(addStatus.fulfilled, (state, action) => {
-				const idx = state.users.findIndex(user => user.id === action.payload.id);
-				state.users.splice(idx, 1, action.payload);
+				const idx = state.findIndex(user => user.id === action.payload.id);
+				state.splice(idx, 1, action.payload);
 			})
 			.addCase(removeStatus.fulfilled, (state, action) => {
-				const idx = state.users.findIndex(user => user.id === action.payload.id);
-				state.users.splice(idx, 1, action.payload);
+				const idx = state.findIndex(user => user.id === action.payload.id);
+				state.splice(idx, 1, action.payload);
 			});
 	},
 });
