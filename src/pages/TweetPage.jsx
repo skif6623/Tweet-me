@@ -1,5 +1,6 @@
 import React, {useState, useEffect} from "react";
 import {useDispatch, useSelector} from "react-redux";
+import {userSelector} from "../redux/selectors";
 import {useLocation, Link} from "react-router-dom";
 import {getUsers, moreUsers} from "../redux/operations";
 import {MainBackground} from "../components/MainBackground/MainBackground";
@@ -10,7 +11,8 @@ import {UserList} from "./TweetPage.styled";
 export const TweetPage = () => {
 	const [page, setPage] = useState(1);
 
-	const users = useSelector(state => state.users.users);
+	const users = useSelector(userSelector);
+
 	const dispatch = useDispatch();
 	const location = useLocation();
 
