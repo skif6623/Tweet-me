@@ -3,7 +3,7 @@ import type {PayloadAction} from "@reduxjs/toolkit";
 
 import {addStatus, getUsers, moreUsers, removeStatus} from "./operations";
 
-type UserType = {
+export type UserType = {
 	avatar: string;
 	follow: boolean;
 	followers: number;
