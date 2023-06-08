@@ -3,9 +3,9 @@ import {SubscribeButton} from "./Button.styled";
 
 type BtnPropsType = {
 	children: React.ReactNode;
-	action: (id: string) => void;
-	id: string;
-	status: string;
+	action: (id?: string) => void;
+	id?: string;
+	status?: string;
 };
 
 export const Button: React.FC<BtnPropsType> = ({children, action, id, status}) => {

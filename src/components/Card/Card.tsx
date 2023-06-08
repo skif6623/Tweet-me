@@ -1,11 +1,14 @@
+import {FC} from "react";
+import {useDispatch} from "react-redux";
+import {addStatus, removeStatus} from "../../redux/operations";
+
 import {Button} from "../Button/Button";
 import {AvatarWrap} from "../AvatarWrap/AvatarWrap";
 import {TweetCard, Logo, Background, Activity, Tweets, Followers} from "./Card.styled";
 
-import {useDispatch} from "react-redux";
-import {addStatus, removeStatus} from "../../redux/operations";
+import {UserType} from "../../redux/userSlice";
 
-export const Card = ({id, user, tweets, followers, avatar, follow}) => {
+export const Card: FC<UserType> = ({id, user, tweets, followers, avatar, follow}) => {
 	const formatedFollowers = followers.toLocaleString("en-US");
 	const formatedTweets = tweets.toLocaleString("en-US");
 

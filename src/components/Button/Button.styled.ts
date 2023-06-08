@@ -1,6 +1,10 @@
 import styled from "styled-components";
 
-export const SubscribeButton = styled.button`
+type SubscribeButtonType = {
+	status?: string;
+};
+
+export const SubscribeButton = styled.button<SubscribeButtonType>`
 	display: block;
 	width: 196px;
 	height: 50px;
