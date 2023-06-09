@@ -6,37 +6,43 @@ axios.defaults.baseURL = "https://644d6936cfdddac970a41176.mockapi.io";
 
 type SubscriptionChangeType = Pick<UserType, "id" | "followers">;
 
-export const getUsers = createAsyncThunk("users/getUsers", async (_, {rejectWithValue}) => {
-	try {
-		const res = await axios.get("user", {
-			params: {
-				page: 1,
-				limit: 3,
-			},
-		});
-		return res.data as UserType[];
-	} catch (error) {
-		return rejectWithValue(error);
-	}
-});
+export const getUsers = createAsyncThunk<UserType[], undefined, {rejectValue: string}>(
+	"users/getUsers",
+	async (_, {rejectWithValue}) => {
+		try {
+			const res = await axios.get("user", {
+				params: {
+					page: 1,
+					limit: 3,
+				},
+			});
+			return res.data as UserType[];
+		} catch (error) {
+			return rejectWithValue("Server error");
+		}
+	},
+);
 
-export const moreUsers = createAsyncThunk("users/moreUsers", async (page, {rejectWithValue}) => {
-	try {
-		const res = await axios.get("user", {
-			params: {
-				page,
-				limit: 3,
-			},
-		});
-		return res.data;
-	} catch (error) {
-		return rejectWithValue(error);
-	}
-});
+export const moreUsers = createAsyncThunk<UserType[], string, {rejectValue: string}>(
+	"users/moreUsers",
+	async (page, {rejectWithValue}) => {
+		try {
+			const res = await axios.get("user", {
+				params: {
+					page,
+					limit: 3,
+				},
+			});
+			return res.data;
+		} catch (error) {
+			return rejectWithValue("Can't load next page. Server error");
+		}
+	},
+);
 
-export const addStatus = createAsyncThunk(
+export const addStatus = createAsyncThunk<UserType, SubscriptionChangeType, {rejectValue: string}>(
 	"users/addStatus",
-	async ({id, followers}: SubscriptionChangeType, {rejectWithValue}) => {
+	async ({id, followers}, {rejectWithValue}) => {
 		try {
 			const res = await axios.put(`user/${id}`, {
 				follow: true,
@@ -44,14 +50,14 @@ export const addStatus = createAsyncThunk(
 			});
 			return res.data;
 		} catch (error) {
-			return rejectWithValue(error);
+			return rejectWithValue("Can't follow this user. Server error");
 		}
 	},
 );
 
-export const removeStatus = createAsyncThunk(
+export const removeStatus = createAsyncThunk<UserType, SubscriptionChangeType, {rejectValue: string}>(
 	"users/removeStatus",
-	async ({id, followers}: SubscriptionChangeType, {rejectWithValue}) => {
+	async ({id, followers}, {rejectWithValue}) => {
 		try {
 			const res = await axios.put(`user/${id}`, {
 				follow: false,
@@ -59,7 +65,7 @@ export const removeStatus = createAsyncThunk(
 			});
 			return res.data;
 		} catch (error) {
-			return rejectWithValue(error);
+			return rejectWithValue("Can't unfollow this user. Server error");
 		}
 	},
 );

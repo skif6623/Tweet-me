@@ -1,5 +1,5 @@
 import {FC} from "react";
-import {useDispatch} from "react-redux";
+import {useAppDispatch} from "../../hooks/hooks";
 import {addStatus, removeStatus} from "../../redux/operations";
 
 import {Button} from "../Button/Button";
@@ -12,7 +12,7 @@ export const Card: FC<UserType> = ({id, user, tweets, followers, avatar, follow}
 	const formatedFollowers = followers.toLocaleString("en-US");
 	const formatedTweets = tweets.toLocaleString("en-US");
 
-	const dispatch = useDispatch();
+	const dispatch = useAppDispatch();
 
 	const subscribe = () => {
 		dispatch(addStatus({id, followers}));
