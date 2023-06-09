@@ -1,6 +1,6 @@
 import {Route, Routes} from "react-router-dom";
 import {HomePage} from "../pages/HomePage/HomePage";
-import {TweetPage} from "../pages/TweetPage";
+import {TweetPage} from "../pages/TweetPage/TweetPage";
 
 export const App = () => {
 	return (

@@ -23,7 +23,7 @@ export const getUsers = createAsyncThunk<UserType[], undefined, {rejectValue: st
 	},
 );
 
-export const moreUsers = createAsyncThunk<UserType[], string, {rejectValue: string}>(
+export const moreUsers = createAsyncThunk<UserType[], number, {rejectValue: string}>(
 	"users/moreUsers",
 	async (page, {rejectWithValue}) => {
 		try {

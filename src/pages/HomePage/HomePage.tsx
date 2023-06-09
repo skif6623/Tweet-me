@@ -1,11 +1,11 @@
-import React from "react";
+import {FC} from "react";
 import {useLocation} from "react-router-dom";
 
 import {MainBackground} from "../../components/MainBackground/MainBackground";
 
 import {NavBg, Title, LinkBtn} from "./HomePage.styled";
 
-export const HomePage = () => {
+export const HomePage: FC = () => {
 	const location = useLocation();
 
 	return (

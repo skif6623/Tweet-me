@@ -1,7 +1,11 @@
 import styled from "styled-components";
 import bg_image from "../../images/social-media-3846597.webp";
 
-export const Bg = styled.main`
+type BgType = {
+	center?: boolean;
+};
+
+export const Bg = styled.main<BgType>`
 	display: ${({center}) => center && "flex"};
 	justify-content: ${({center}) => center && "center"};
 	align-items: ${({center}) => center && "center"};

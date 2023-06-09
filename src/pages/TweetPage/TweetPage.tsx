@@ -1,19 +1,19 @@
-import React, {useState, useEffect} from "react";
-import {useDispatch, useSelector} from "react-redux";
-import {userSelector} from "../redux/selectors";
+import {useState, useEffect, FC} from "react";
+import {useAppDispatch, useAppSelector} from "../../hooks/hooks";
+import {userSelector} from "../../redux/selectors";
 import {useLocation, Link} from "react-router-dom";
-import {getUsers, moreUsers} from "../redux/operations";
-import {MainBackground} from "../components/MainBackground/MainBackground";
-import {Card} from "../components/Card/Card";
-import {Button} from "../components/Button/Button";
+import {getUsers, moreUsers} from "../../redux/operations";
+import {MainBackground} from "../../components/MainBackground/MainBackground";
+import {Card} from "../../components/Card/Card";
+import {Button} from "../../components/Button/Button";
 import {UserList} from "./TweetPage.styled";
 
-export const TweetPage = () => {
+export const TweetPage: FC = () => {
 	const [page, setPage] = useState(1);
 
-	const users = useSelector(userSelector);
+	const users = useAppSelector(userSelector);
 
-	const dispatch = useDispatch();
+	const dispatch = useAppDispatch();
 	const location = useLocation();
 
 	const totalPages = 4;
