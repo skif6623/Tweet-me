@@ -1,6 +1,6 @@
 {
-	"homepage": "https://skif6623.github.io/go-it-test-task/",
-	"name": "go-it-test-task",
+	"homepage": "https://skif6623.github.io/Tweet-me/",
+	"name": "Tweet-me",
 	"version": "0.1.0",
 	"private": true,
 	"dependencies": {
