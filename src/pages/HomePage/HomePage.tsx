@@ -14,7 +14,7 @@ export const HomePage: FC = () => {
 				<Title>Welcome to Tweet me</Title>
 				<LinkBtn to="/">Home</LinkBtn>
 				<LinkBtn to="/tweets" state={{from: location}}>
-					Tweets T
+					Tweets
 				</LinkBtn>
 			</NavBg>
 		</MainBackground>
