@@ -1,6 +1,6 @@
 {
-	"homepage": "https://skif6623.github.io/Tweet-me/",
-	"name": "Tweet-me",
+	"homepage": "https://skif6623.github.io/tweet-me/",
+	"name": "tweet-me",
 	"version": "0.1.0",
 	"private": true,
 	"dependencies": {
