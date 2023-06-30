@@ -1,12 +1,12 @@
 import {useState, useEffect, FC} from "react";
 import {useAppDispatch, useAppSelector} from "../../hooks/hooks";
 import {userSelector} from "../../redux/selectors";
-import {useLocation, Link} from "react-router-dom";
+import {useLocation} from "react-router-dom";
 import {getUsers, moreUsers} from "../../redux/operations";
 import {MainBackground} from "../../components/MainBackground/MainBackground";
 import {Card} from "../../components/Card/Card";
 import {Button} from "../../components/Button/Button";
-import {UserList} from "./TweetPage.styled";
+import {UserList, GetBackButton} from "./TweetPage.styled";
 
 export const TweetPage: FC = () => {
 	const [page, setPage] = useState(1);
@@ -30,7 +30,7 @@ export const TweetPage: FC = () => {
 
 	return (
 		<MainBackground>
-			<Link to={backLinkRef}>Go Back</Link>
+			<GetBackButton to={backLinkRef}>Go Back</GetBackButton>
 			<UserList>
 				{users.map(({user, tweets, followers, avatar, follow, id}) => {
 					return (
